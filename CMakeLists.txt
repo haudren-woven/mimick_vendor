@@ -57,6 +57,14 @@ macro(build_mimick)
     list(APPEND cmake_configure_args "-DCMAKE_CXX_COMPILER=${CMAKE_CXX_COMPILER}")
   endif()
 
+  if(DEFINED CMAKE_CXX_FLAGS)
+    list(APPEND cmake_configure_args "-DCMAKE_CXX_FLAGS=${CMAKE_CXX_FLAGS}")
+  endif()
+
+  if(DEFINED CMAKE_C_FLAGS)
+    list(APPEND cmake_configure_args "-DCMAKE_C_FLAGS=${CMAKE_C_FLAGS}")
+  endif()
+
   include(ExternalProject)
   set(mimick_version "de11f8377eb95f932a03707b583bf3d4ce5bd3e7")
   externalproject_add(mimick-${mimick_version}
